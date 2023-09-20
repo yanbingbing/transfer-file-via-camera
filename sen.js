@@ -28,7 +28,7 @@ function getSlotIndex() {
 }
 
 const capacity = 250
-const total = Math.floor(max / capacity)
+const total = Math.ceil(max / capacity)
 function getSerialIndex() {
     if (i < total) {
         return i
@@ -85,7 +85,7 @@ function replay() {
 
 function outputFileInfoCode() {
     qrcode.toString(
-        `START:${frameWidth} ${total}`,
+        `START:${frameWidth} ${total} `+ buffer.slice(0, 240),
         { type: 'terminal' },
         (err, url) => {
             console.clear()
